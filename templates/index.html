@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zamówienie – Stolarnia</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Złóż zamówienie</h1>
+    <form method="POST" action="/submit" enctype="multipart/form-data">
+      <label>Imię i nazwisko</label>
+      <input type="text" name="name" required>
+
+      <label>Adres e-mail</label>
+      <input type="email" name="email" required>
+
+      <label>Telefon</label>
+      <input type="tel" name="phone" required>
+
+      <label>Rodzaj zamówienia</label>
+      <select name="order_type" required>
+        <option value="">-- Wybierz --</option>
+        <option value="Druk DTF">Druk DTF</option>
+        <option value="Znakowanie długopisów">Znakowanie długopisów</option>
+        <option value="Haft">Haft</option>
+        <option value="Grawer">Grawer</option>
+        <option value="Druk 3D">Druk 3D</option>
+        <option value="inne">Inne</option>
+      </select>
+
+      <label>Wymiary (szerokość x wysokość w mm)</label>
+      <input type="text" name="dimensions" required>
+
+      <label for="due_date">Preferowany termin realizacji:</label>
+      <input type="date" id="due_date" name="due_date" required>
+
+      <label>Ilość</label>
+      <input type="text" name="qty" required>
+
+      <label>Dodatkowe informacje</label>
+      <textarea name="details"></textarea>
+
+      <label>Inspiracja (opcjonalnie)</label>
+      <input type="file" name="attachment">
+
+      <label>
+        <input type="checkbox" name="consent" required>
+        Wyrażam zgodę na przetwarzanie danych osobowych.
+      </label>
+
+      <button type="submit">Wyślij zamówienie</button>
+    </form>
+  </div>
+</body>
+</html>

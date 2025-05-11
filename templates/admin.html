@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel administracyjny – Stolarnia</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Imię i nazwisko</th>
+        <th>Email</th>
+        <th>Telefon</th>
+        <th>Typ zamówienia</th>
+        <th>Wymiary</th>
+        <th>Ilość</th>
+        <th>Szczegóły</th>
+        <th>Załącznik</th>
+        <th>Data</th>
+        <th>Termin</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for order in orders %}
+      <tr>
+        <td>{{ order['id'] }}</td>
+        <td>{{ order['name'] }}</td>
+        <td>{{ order['email'] }}</td>
+        <td>{{ order['phone'] }}</td>
+        <td>{{ order['order_type'] }}</td>
+        <td>{{ order['dimensions'] }}</td>
+        <td>{{ order['qty'] }}</td>
+        <td>{{ order['details'] }}</td>
+        <td>{{ order['attachment'] }}</td>
+        <td>{{ order['created_at'] }}</td>
+        <td>{{ order['due_date'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    <a href="/" style="display:block;margin-top:2rem;">← Powrót do formularza</a>
+    <a href="/logout" style="float:right;">Wyloguj</a>
+  </div>
+</body>
+</html>
