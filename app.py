@@ -5,7 +5,7 @@ import os
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
-app.secret_key = 'twoj_super_tajny_klucz'  # ← ważne do obsługi sesji
+app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
